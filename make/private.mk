@@ -16,9 +16,6 @@ override WORKDIR_DEPS = $(WORKDIR_ROOT)/deps
 # Includes
 include make/deps.mk
 include bowerbird.mk
-include test/bowerbird-install-tools/test-install-as-copy.mk
-include test/bowerbird-install-tools/test-install-as-executable.mk
-include test/bowerbird-install-tools/test-install-as-link.mk
 
  # Targets
 .PHONY: private_clean
@@ -29,8 +26,4 @@ private_clean:
 	@echo "INFO: Cleaning complete."
 	@echo
 
-.PHONY: private_test
-private_test: \
-		test-install-as-copy \
-		test-install-as-executable \
-		test-install-as-link \
+$(eval $(call bowerbird::generate-test-runner,private_test,test/,test*.mk))
