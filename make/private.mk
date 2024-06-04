@@ -10,8 +10,11 @@ NAME ?= $(error ERROR: Undefined variable NAME)
 VERSION ?= $(error ERROR: Undefined variable VERSION)
 WORKDIR_ROOT ?= $(error ERROR: Undefined variable WORKDIR_ROOT)
 override WORKDIR_TEST = $(WORKDIR_ROOT)/test/$(NAME)/$(VERSION)
+override WORKDIR_DEPS = $(WORKDIR_ROOT)/deps
+
 
 # Includes
+include make/deps.mk
 include bowerbird.mk
 include test/bowerbird-install-tools/test-install-as-copy.mk
 include test/bowerbird-install-tools/test-install-as-executable.mk
