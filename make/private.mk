@@ -3,22 +3,23 @@
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --no-builtin-variables
 MAKEFLAGS += --no-print-directory
+MAKEFLAGS += --shuffle
+MAKEFLAGS += --warn-undefined-variables
 MAKEFLAGS += --jobs
+
 
 # Constants
 NAME ?= $(error ERROR: Undefined variable NAME)
 VERSION ?= $(error ERROR: Undefined variable VERSION)
 WORKDIR_ROOT ?= $(error ERROR: Undefined variable WORKDIR_ROOT)
-override WORKDIR_TEST = $(WORKDIR_ROOT)/test/$(NAME)/$(VERSION)
-override WORKDIR_DEPS = $(WORKDIR_ROOT)/deps
-
+WORKDIR_TEST = $(WORKDIR_ROOT)/test/$(NAME)/$(VERSION)
+WORKDIR_DEPS = $(WORKDIR_ROOT)/deps
 
 # Includes
 include make/deps.mk
 include bowerbird.mk
 
  # Targets
- .NOTPARALLEL: private_clean
 .PHONY: private_clean
 private_clean:
 	@echo "INFO: Cleaning directories:"
