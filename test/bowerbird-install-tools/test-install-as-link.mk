@@ -8,7 +8,7 @@ $(WORKDIR_TEST)/test-install-as-link-no-files/installed.sh:
 
 PHONY: test-install-as-link-one-file
 test-install-as-link-one-file: $(WORKDIR_TEST)/test-install-as-link-one-file/installed.sh
-	diff -y $< $(WORKDIR_TEST)/test-install-as-link-one-file/alpha-link.sh
+	$(call bowerbird::test::compare-files,$<,$(WORKDIR_TEST)/test-install-as-link-one-file/alpha-link.sh)
 	test -L $<
 
 $(WORKDIR_TEST)/test-install-as-link-one-file/installed.sh: \
@@ -18,7 +18,7 @@ $(WORKDIR_TEST)/test-install-as-link-one-file/installed.sh: \
 
 PHONY: test-install-as-link-two-files
 test-install-as-link-two-files: $(WORKDIR_TEST)/test-install-as-link-two-files/installed.sh
-	diff -y $< $(WORKDIR_TEST)/test-install-as-link-two-files/alpha-link.sh
+	$(call bowerbird::test::compare-files,$<,$(WORKDIR_TEST)/test-install-as-link-two-files/alpha-link.sh)
 	test -L $<
 
 $(WORKDIR_TEST)/test-install-as-link-two-files/installed.sh: \

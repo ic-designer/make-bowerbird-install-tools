@@ -6,7 +6,7 @@ $(WORKDIR_TEST)/test-install-as-executable-no-files/installed.sh:
 
 
 test-install-as-executable-one-file: $(WORKDIR_TEST)/test-install-as-executable-one-file/installed.sh
-	diff -y $< $(WORKDIR_TEST)/test-install-as-executable-one-file/alpha-executable.sh
+	$(call bowerbird::test::compare-files,$<,$(WORKDIR_TEST)/test-install-as-executable-one-file/alpha-executable.sh)
 	test -x $<
 
 $(WORKDIR_TEST)/test-install-as-executable-one-file/installed.sh: \
@@ -15,7 +15,7 @@ $(WORKDIR_TEST)/test-install-as-executable-one-file/installed.sh: \
 
 
 test-install-as-executable-two-files: $(WORKDIR_TEST)/test-install-as-executable-two-files/installed.sh
-	diff -y $< $(WORKDIR_TEST)/test-install-as-executable-two-files/alpha-executable.sh
+	$(call bowerbird::test::compare-files,$<,$(WORKDIR_TEST)/test-install-as-executable-two-files/alpha-executable.sh)
 	test -x $<
 
 $(WORKDIR_TEST)/test-install-as-executable-two-files/installed.sh: \

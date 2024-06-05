@@ -6,7 +6,7 @@ $(WORKDIR_TEST)/test-install-as-copy-no-files/installed.sh:
 
 
 test-install-as-copy-one-file: $(WORKDIR_TEST)/test-install-as-copy-one-file/installed.sh
-	diff -y $< $(WORKDIR_TEST)/test-install-as-copy-one-file/alpha-copy.sh
+	$(call bowerbird::test::compare-files,$<,$(WORKDIR_TEST)/test-install-as-copy-one-file/alpha-copy.sh)
 
 $(WORKDIR_TEST)/test-install-as-copy-one-file/installed.sh: \
 		$(WORKDIR_TEST)/test-install-as-copy-one-file/alpha-copy.sh
@@ -14,7 +14,7 @@ $(WORKDIR_TEST)/test-install-as-copy-one-file/installed.sh: \
 
 
 test-install-as-copy-two-files: $(WORKDIR_TEST)/test-install-as-copy-two-files/installed.sh
-	diff -y $< $(WORKDIR_TEST)/test-install-as-copy-two-files/alpha-copy.sh
+	$(call bowerbird::test::compare-files,$<,$(WORKDIR_TEST)/test-install-as-copy-two-files/alpha-copy.sh)
 
 $(WORKDIR_TEST)/test-install-as-copy-two-files/installed.sh: \
 		$(WORKDIR_TEST)/test-install-as-copy-two-files/alpha-copy.sh \
