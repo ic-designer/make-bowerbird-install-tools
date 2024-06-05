@@ -1,19 +1,18 @@
 # Config
 .SUFFIXES:
+MAKEFLAGS += --jobs
 MAKEFLAGS += --no-builtin-rules
 MAKEFLAGS += --no-builtin-variables
 MAKEFLAGS += --no-print-directory
 MAKEFLAGS += --shuffle
 MAKEFLAGS += --warn-undefined-variables
-MAKEFLAGS += --jobs
-
 
 # Constants
-NAME ?= $(error ERROR: Undefined variable NAME)
-VERSION ?= $(error ERROR: Undefined variable VERSION)
-WORKDIR_ROOT ?= $(error ERROR: Undefined variable WORKDIR_ROOT)
-WORKDIR_TEST = $(WORKDIR_ROOT)/test/$(NAME)/$(VERSION)
+NAME := bowerbird-install-tools
+VERSION := $(shell git describe --always --dirty --broken 2> /dev/null)
+WORKDIR_ROOT := $(CURDIR)/.make
 WORKDIR_DEPS = $(WORKDIR_ROOT)/deps
+WORKDIR_TEST = $(WORKDIR_ROOT)/test/$(NAME)/$(VERSION)
 
 # Includes
 include make/deps.mk
