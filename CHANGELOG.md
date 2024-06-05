@@ -19,7 +19,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Migrated the install recipes to a separate repo.
+- Updated the configuration
+- Added bowerbird dependencies for test, help, and githooks.
 ### Changed
+- File comparisons performed using the bowerbird::test macros.
+- Updated the project configuration to warn against undefined variables.
 ### Deprecated
 ### Fixed
 ### Security
