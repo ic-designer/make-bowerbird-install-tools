@@ -10,11 +10,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 ### Changed
-- Updated the `bowerbird-deps` and `bowerbird-test` calls to the new syntax.
 ### Deprecated
 ### Fixed
 ### Security
 ```
+
+## [Unreleased] - YYYY-MM-DD
+
+### Added
+### Changed
+- Updated the `bowerbird-deps` and `bowerbird-test` calls to the new syntax.
+### Deprecated
+### Fixed
+### Security
+
 
 ## [0.1.0] - 2024-06-07
 
